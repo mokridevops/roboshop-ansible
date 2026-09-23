@@ -37,7 +37,7 @@
        value: "{{ item.instances[0].private_ip_address }}"
        overwrite: true
       loop:  "{{ ec2_instances_output.results }}"
-      when: item.item != "frontend"
+      # when: item.item != "frontend"
 
     - name: create route53 record for frontend
       amazon.aws.route53:
