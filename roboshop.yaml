@@ -80,3 +80,12 @@
       when: 
       - action == "delete"
       
+
+    - name: delete EC2 instances
+      amazon.aws.ec2_instance:
+       state: absent
+       name: "roboshop-{{ item }}"
+      loop: "{{ instances }}"       
+      when: action == "delete"
+
+      
