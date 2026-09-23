@@ -14,8 +14,13 @@
         - "roboshop-common"
         - "roboshop-{{ item }}"
       loop: "{{ instances }}"   
-      register: ec2_instance_output
+      register: ec2_instances_output
 
-    - name: print out_put
+    # - name: print out_put
+    #   debug:
+    #     msg: "{{ ec2_instances_output }}"
+
+    - name: create route53 records
       debug:
-        msg: "{{ ec2_instance_output }}"
+        msg: "Instance Name: {{ item.item }} Private IP: {{ item.instances[0].private_ip_address }}"
+      loop: "{{ ec2_instances_output.results }}"
