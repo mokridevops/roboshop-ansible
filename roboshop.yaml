@@ -12,7 +12,7 @@
         name: "roboshop-{{ item }}"
         security_groups: 
         - "roboshop-common"
-        - "roboshop={{ item }}"
+        - "roboshop-{{ item }}"
       loop: "{{ instances }}"   
       register: ec2_instance_output
 
