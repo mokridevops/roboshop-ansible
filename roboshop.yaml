@@ -34,7 +34,7 @@
        record:  "{{ item.item }}.{{ domain }}"   #mongodb.mokridevops.shop
        type: A
        ttl: 1
-       value: "{{ item.instances[0].private_ip_address }"
+       value: "{{ item.instances[0].private_ip_address }}"
        overwrite: true
       loop:  "{{ ec2_instances_output.results }}"
       # when: item.item != "frontend"
@@ -46,7 +46,7 @@
        record:  "{{ domain }}"   #mokridevops.shop
        type: A
        ttl: 1
-       value: "{{ item.instances[0].public_ip_address }"
+       value: "{{ item.instances[0].public_ip_address }}"
        overwrite: true
       loop:  "{{ ec2_instances_output.results }}"
       when: item.item == "frontend"
