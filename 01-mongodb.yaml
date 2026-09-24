@@ -1,6 +1,6 @@
 - name: configuring mongodb server
   hosts: mongodb
-  connection: local
+  # connection: local
   become: yes
   tasks:
    - name: copy mongdb repo
